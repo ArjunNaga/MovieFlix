@@ -1,16 +1,33 @@
 package Movieflix.entity;
 
+import java.util.UUID;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table
+@NamedQueries({
+	@NamedQuery(name = "Movie.findAll", query = "SELECT m from Movie m ORDER BY m.movieName"),
+	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.movieName=:pmovieName")
+})
 public class Movie {
 
+	@Id
 	private String id;
+	
+	@Column(unique = true)
 	private String movieName;
 	private String movieDirector;
 	
+	
+	public Movie(){
+	id = UUID.randomUUID().toString();
+	}
 	
 	public String getId() {
 		return id;
