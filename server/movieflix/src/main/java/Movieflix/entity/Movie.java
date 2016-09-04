@@ -23,8 +23,10 @@ public class Movie {
 	@Column(unique = true)
 	private String movieName;
 	private String movieDirector;
+	private String movieGenre;
 	
 	
+
 	public Movie(){
 	id = UUID.randomUUID().toString();
 	}
@@ -47,4 +49,20 @@ public class Movie {
 	public void setMovieDirector(String movieDirector) {
 		this.movieDirector = movieDirector;
 	}
+	
+	public String getMovieGenre() {
+		return movieGenre;
+	}
+
+	public void setMovieGenre(String movieGenre) {
+		this.movieGenre = movieGenre;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", movieName=" + movieName + ", movieDirector=" + movieDirector + ", movieGenre="
+				+ movieGenre + "]";
+	}
+	
+	
 }
