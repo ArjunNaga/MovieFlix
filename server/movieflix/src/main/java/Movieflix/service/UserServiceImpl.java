@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Movieflix.entity.User;
-import Movieflix.exception.EntityAlreadyExistException;
-import Movieflix.exception.EntityNotFoundException;
+import Movieflix.exception.MovieAlreadyExistException;
+import Movieflix.exception.MovieNotFoundException;
+import Movieflix.exception.UserAlreadyExistException;
+import Movieflix.exception.UserNotFoundException;
 import Movieflix.repository.UserRepository;
 
 @Service
@@ -27,9 +29,9 @@ public class UserServiceImpl implements UserService {
 	public User findOne(String userId) {
 		User user = userRepository.findOne(userId);
 		if (user == null) {
-			throw new EntityNotFoundException("User not found");
+			throw new UserNotFoundException("User not found");
 		}
-		return user;
+		return user; 
 	}
 
 	@Transactional
@@ -37,7 +39,7 @@ public class UserServiceImpl implements UserService {
 	public User create(User user) {
 		User existing = userRepository.findByEmail(user.getUserEmail());
 		if (existing != null) {
-			throw new EntityAlreadyExistException("User already exists");
+			throw new UserAlreadyExistException("User already exists");
 		}
 		return userRepository.create(user);
 	}
@@ -47,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	public User update(String userId, User user) {
 		User existing = userRepository.findOne(userId);
 		if (existing == null) {
-			throw new EntityNotFoundException("User not found");
+			throw new UserNotFoundException("User not found");
 		}
 		return userRepository.update(user);
 	}
@@ -57,7 +59,7 @@ public class UserServiceImpl implements UserService {
 	public void remove(String userId) {
 		User existing = userRepository.findOne(userId);
 		if (existing == null) {
-			throw new EntityNotFoundException("User not found");
+			throw new UserNotFoundException("User not found");
 		}
 		userRepository.delete(existing);
 	}

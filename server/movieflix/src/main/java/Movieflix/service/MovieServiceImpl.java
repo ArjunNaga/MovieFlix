@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Movieflix.entity.Movie;
-import Movieflix.exception.EntityAlreadyExistException;
-import Movieflix.exception.EntityNotFoundException;
+import Movieflix.exception.MovieAlreadyExistException;
+import Movieflix.exception.MovieNotFoundException;
 import Movieflix.repository.MovieRepository;
 
 @Service
@@ -27,7 +27,7 @@ public class MovieServiceImpl implements MovieService {
 	public Movie findOne(String movieId) {
 		Movie movie = movieRepository.findOne(movieId);
 		if (movie == null) {
-			throw new EntityNotFoundException("Movie not found");
+			throw new MovieNotFoundException("Movie not found");
 		}
 		return movie;
 	}
@@ -37,7 +37,7 @@ public class MovieServiceImpl implements MovieService {
 	public Movie create(Movie movie) {
 		Movie existing = movieRepository.findByName(movie.getMovieName());
 		if (existing != null) {
-			throw new EntityAlreadyExistException("Movie already exists");
+			throw new MovieAlreadyExistException("Movie already exists");
 		}
 		return movieRepository.create(movie);
 	}
@@ -47,7 +47,7 @@ public class MovieServiceImpl implements MovieService {
 	public Movie update(String movieId, Movie movie) {
 		Movie existing = movieRepository.findOne(movieId);
 		if (existing == null) {
-			throw new EntityNotFoundException("Movie not found");
+			throw new MovieNotFoundException("Movie not found");
 		}
 		return movieRepository.update(movie);
 	}
@@ -57,7 +57,7 @@ public class MovieServiceImpl implements MovieService {
 	public void remove(String movieId) {
 		Movie existing = movieRepository.findOne(movieId);
 		if (existing == null) {
-			throw new EntityNotFoundException("Movie not found");
+			throw new MovieNotFoundException("Movie not found");
 		}
 		movieRepository.delete(existing);
 	}
