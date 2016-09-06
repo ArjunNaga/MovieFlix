@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table
@@ -26,6 +28,7 @@ public class Movie {
 	private String movieName;
 	private String movieDirector;
 	private String movieGenre;
+	@Temporal(TemporalType.DATE)
 	private Date releaseDate;
 	
 
@@ -60,8 +63,9 @@ public class Movie {
 		this.movieGenre = movieGenre;
 	}
 
+	@SuppressWarnings("deprecation")
 	public String getReleaseDate() {
-		return releaseDate.toString();
+		return releaseDate.toLocaleString();
 	}
 
 	public void setReleaseDate(Date releaseDate) {

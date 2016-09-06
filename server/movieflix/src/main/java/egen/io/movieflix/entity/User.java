@@ -1,17 +1,21 @@
 package egen.io.movieflix.entity;
 
+import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+
+
+@Entity 
 @Table
 @NamedQueries({
 	@NamedQuery(name = "User.findAll", query = "SELECT u from User u ORDER BY u.userEmail"),
@@ -26,10 +30,6 @@ public class User {
 	@Column(unique = true, nullable = false)
 	private String userEmail;
 	private String userAccountType;
-	
-	public User(){
-		id = UUID.randomUUID().toString();
-		}
 	
 	
 	public String getId() {
@@ -50,12 +50,8 @@ public class User {
 	public void setUserAccountType(String userAccountType) {
 		this.userAccountType = userAccountType;
 	}
-
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userEmail=" + userEmail + ", userAccountType=" + userAccountType + "]";
 	}
-	
-	
 }

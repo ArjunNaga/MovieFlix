@@ -9,13 +9,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.eclipse.persistence.jpa.config.Cascade;
 
 @Entity
 @Table
@@ -31,6 +29,23 @@ private String id;
 
 private String ratingGrade;
 private double averageRating;
+@Column(unique = true)
+private int movieRanking;
+
+@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+private User user;
+
+
+public User getUser() {
+	return user;
+}
+
+
+public void setUser(User user) {
+	this.user = user;
+}
+
+
 public double getAverageRating() {
 	return averageRating;
 }
@@ -39,8 +54,6 @@ public double getAverageRating() {
 public void setAverageRating(double averageRating) {
 	this.averageRating = averageRating;
 }
-@Column(unique = true)
-private int movieRanking;
 
 public Rating(){
 	id = UUID.randomUUID().toString();
