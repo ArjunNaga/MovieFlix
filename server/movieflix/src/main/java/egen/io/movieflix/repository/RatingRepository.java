@@ -3,6 +3,7 @@ package egen.io.movieflix.repository;
 import java.util.List;
 
 import egen.io.movieflix.entity.Rating;
+import egen.io.movieflix.entity.User;
 
 public interface RatingRepository {
 
@@ -17,6 +18,8 @@ public interface RatingRepository {
 
 	public void delete(Rating existing);
 
-	public List<Rating> findAll(); 
+	public List<Rating> findAll();
+
+	public Rating create(Rating rating, User user); 
 
 }

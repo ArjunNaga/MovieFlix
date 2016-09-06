@@ -1,6 +1,5 @@
 package egen.io.movieflix.entity;
 
-import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -8,9 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,12 +25,15 @@ public class User {
 	@Id
 	@Column(name = "USER_ID")
 	private String id;
-	
+	 
 	@Column(unique = true, nullable = false)
 	private String userEmail;
 	private String userAccountType;
+     
 	
-	
+	public User(){
+	id = UUID.randomUUID().toString();
+	}
 	public String getId() {
 		return id;
 	}

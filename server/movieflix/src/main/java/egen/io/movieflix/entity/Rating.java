@@ -2,6 +2,7 @@ package egen.io.movieflix.entity;
 
 
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -9,9 +10,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 
@@ -29,27 +33,24 @@ private String id;
 
 private String ratingGrade;
 private double averageRating;
-@Column(unique = true)
+
+@Column(unique = true, nullable = false)
 private int movieRanking;
+public double getAverageRating() {
+	return averageRating;
+}
 
-@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+@PrimaryKeyJoinColumn
 private User user;
-
 
 public User getUser() {
 	return user;
 }
 
-
 public void setUser(User user) {
 	this.user = user;
 }
-
-
-public double getAverageRating() {
-	return averageRating;
-}
-
 
 public void setAverageRating(double averageRating) {
 	this.averageRating = averageRating;
@@ -57,7 +58,7 @@ public void setAverageRating(double averageRating) {
 
 public Rating(){
 	id = UUID.randomUUID().toString();
-	}
+}
 
 
 public String getId() {
@@ -88,11 +89,4 @@ public String toString() {
 	return "Rating [id=" + id + ", ratingGrade=" + ratingGrade + ", averageRating=" + averageRating + ", movieRanking="
 			+ movieRanking + "]";
 }
-
-
-
-
-
-
-
 }

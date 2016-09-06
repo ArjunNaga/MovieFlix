@@ -8,11 +8,12 @@ public interface RatingService {
 
 	public Rating findOne(String ratingId);
 
-	public Rating create(Rating rating);
-
 	public Rating update(String ratingId, Rating rating);
 
 	public void remove(String ratingId);
 
 	public List<Rating> findAll();
+
+	public Rating create(Rating rating);
 }
+ 

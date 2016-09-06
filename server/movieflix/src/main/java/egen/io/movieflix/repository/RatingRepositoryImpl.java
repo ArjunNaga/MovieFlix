@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import egen.io.movieflix.entity.Movie;
 import egen.io.movieflix.entity.Rating;
+import egen.io.movieflix.entity.User;
 
 @Repository
 public class RatingRepositoryImpl implements RatingRepository {
@@ -28,10 +29,16 @@ public class RatingRepositoryImpl implements RatingRepository {
 		return em.find(Rating.class, ratingId);
 	}
 
-
 	@Override
 	public Rating create(Rating rating) {
-		em.persist(rating);
+		em.persist(rating); 
+		return rating;
+	}
+
+	@Override
+	public Rating create(Rating rating,User user) {
+		em.persist(user);
+		em.persist(rating); 
 		return rating;
 	}
 

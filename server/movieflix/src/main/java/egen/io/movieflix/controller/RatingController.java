@@ -32,8 +32,8 @@ public class RatingController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public  Rating create(@RequestBody Rating rating) {
-		return ratingService.create(rating);
+	public  Rating create(@RequestBody Rating ratings) {
+		return ratingService.create(ratings);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
