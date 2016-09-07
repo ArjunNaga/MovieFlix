@@ -1,13 +1,14 @@
 package egen.io.movieflix.entity;
 
+import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,6 +30,15 @@ public class User {
 	@Column(unique = true, nullable = false)
 	private String userEmail;
 	private String userAccountType;
+	
+	@ManyToMany(mappedBy = "users")
+	@JoinTable(
+			name = "USER_MOVIES",
+			joinColumns = @JoinColumn(name = "Movie_id"),
+			inverseJoinColumns = @JoinColumn(name = "User_id"))
+	private List<Movie> movies;
+	
+	
      
 	
 	public User(){

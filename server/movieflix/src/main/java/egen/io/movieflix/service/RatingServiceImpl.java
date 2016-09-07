@@ -10,6 +10,7 @@ import egen.io.movieflix.entity.Rating;
 import egen.io.movieflix.exception.RatingAlreadyExistException;
 import egen.io.movieflix.exception.RatingNotFoundException;
 import egen.io.movieflix.repository.RatingRepository;
+import egen.io.movieflix.repository.UserRepository;
 
 
 @Service
@@ -17,6 +18,9 @@ public class RatingServiceImpl implements RatingService {
 
 	@Autowired
 	private RatingRepository ratingRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 
 	
@@ -46,7 +50,7 @@ public class RatingServiceImpl implements RatingService {
 		if (existing == null) {
 			throw new RatingNotFoundException("Rating not found");
 		}
-		return ratingRepository.update(rating);
+		return ratingRepository.update(rating); 
 	}
 
 	@Transactional

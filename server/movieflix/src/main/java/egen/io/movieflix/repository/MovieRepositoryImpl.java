@@ -28,9 +28,9 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public Movie findByName(String movieName) {
+	public Movie findByName(String title) {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByName", Movie.class);
-		query.setParameter("pmovieName", movieName);
+		query.setParameter("ptitle", title);
 		List<Movie> movies = query.getResultList();
 		if (movies.size() == 1) {
 			return movies.get(0);
