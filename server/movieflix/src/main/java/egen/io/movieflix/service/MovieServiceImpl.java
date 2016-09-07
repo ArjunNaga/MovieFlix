@@ -35,7 +35,7 @@ public class MovieServiceImpl implements MovieService {
 	@Transactional
 	@Override
 	public Movie create(Movie movie) {
-		Movie existing = movieRepository.findByName(movie.getImdbID());
+		Movie existing = movieRepository.findByName(movie.getTitle());
 		if (existing != null) { 
 			throw new MovieAlreadyExistException("Movie already exists");
 		}

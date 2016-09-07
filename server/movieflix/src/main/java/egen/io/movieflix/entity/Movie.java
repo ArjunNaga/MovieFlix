@@ -8,8 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +26,7 @@ public class Movie {
 	@Column(name = "MOVIE_ID")
 	private String id; 
 	
+	@Column(nullable = false, unique = true)
     private String Title;
     private int Year;
     private String Rated;
@@ -44,8 +47,9 @@ public class Movie {
     @Column(unique = true)
     private String imdbID;
     private String Type;
-    
-    public String getId() {
+
+
+	public String getId() {
 		return id;
 	}
 
@@ -204,7 +208,7 @@ public class Movie {
 	public void setType(String type) {
 		Type = type;
 	}
-
+/*
 	public List<User> getUsers() {
 		return users;
 	}
@@ -214,7 +218,7 @@ public class Movie {
 	}
 
 	@ManyToMany
-	private List<User> users;
+	private List<User> users;*/
 
 	public Movie(){
 	id = UUID.randomUUID().toString();

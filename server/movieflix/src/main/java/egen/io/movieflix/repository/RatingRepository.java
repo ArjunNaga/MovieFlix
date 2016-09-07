@@ -20,6 +20,4 @@ public interface RatingRepository {
 
 	public List<Rating> findAll();
 
-	public Rating create(Rating rating, User user); 
-
 }

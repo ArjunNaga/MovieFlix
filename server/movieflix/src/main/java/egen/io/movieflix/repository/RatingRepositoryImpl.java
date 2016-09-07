@@ -36,13 +36,6 @@ public class RatingRepositoryImpl implements RatingRepository {
 	}
 
 	@Override
-	public Rating create(Rating rating,User user) {
-		em.persist(user);
-		em.persist(rating); 
-		return rating;
-	}
-
-	@Override
 	public Rating update(Rating rating) {
 		return em.merge(rating);
 	}
