@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import egen.io.movieflix.entity.Comment;
-import egen.io.movieflix.entity.Movie;
-import egen.io.movieflix.entity.User;
-import egen.io.movieflix.exception.MovieAlreadyExistException;
-import egen.io.movieflix.exception.MovieNotFoundException;
+import egen.io.movieflix.exception.CommentAlreadyExistException;
+import egen.io.movieflix.exception.CommentNotFoundException;
 import egen.io.movieflix.repository.CommentRepository;
 
 @Service
@@ -24,21 +22,23 @@ public class CommentServiceImpl implements CommentService {
 		return movie_userRepository.findAll();
 	}
 
+	@Transactional
 	@Override
-	public Comment create(String movieId, String userId, String message) {
+	public Comment create(Comment comment) {
 		
-		Comment existing = movie_userRepository.create(movieId, userId, message);
-		if (existing != null) { 
-			throw new MovieAlreadyExistException("Comment already exists"); 
-		}
-		return movie_userRepository.create(movieId, userId, message);
+		Comment existing = movie_userRepository.create(comment);
+		System.out.println("Exception");
+		/*if (existing != null) { 
+			throw new CommentAlreadyExistException("Comment already exists"); 
+		}*/
+		return movie_userRepository.create(comment);
 	}
 
 	@Override
 	public Comment findOne(String commentId) {
 		Comment comment = movie_userRepository.findOne(commentId);
 		if (comment == null) {
-			throw new MovieNotFoundException("Comment not found");
+			throw new CommentNotFoundException("Comment not found"); 
 		}
 		return comment;
 	}
@@ -48,7 +48,7 @@ public class CommentServiceImpl implements CommentService {
 	public Comment update(String commentId, Comment comment) {
 		Comment existing = movie_userRepository.findOne(commentId);
 		if (existing == null) {
-			throw new MovieNotFoundException("Movie not found");
+			throw new CommentNotFoundException("Comment not found");
 		}
 		return movie_userRepository.update(comment);
 	}
@@ -58,7 +58,7 @@ public class CommentServiceImpl implements CommentService {
 	public void remove(String commentId) {
 		Comment existing = movie_userRepository.findOne(commentId);
 		if (existing == null) {
-			throw new MovieNotFoundException("Movie not found");
+			throw new CommentNotFoundException("Comment not found");
 		}
 		movie_userRepository.delete(existing);
 	}

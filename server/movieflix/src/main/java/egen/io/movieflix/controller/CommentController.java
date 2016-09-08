@@ -28,8 +28,9 @@ public class CommentController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Comment create(String movieId, String userId, String message){
-		return movie_userService.create(movieId, userId, message);
+	public Comment create(@RequestBody Comment comment){
+		System.out.println("Controller" + comment.getMessage());
+		return movie_userService.create(comment);
 	}
 	
 	

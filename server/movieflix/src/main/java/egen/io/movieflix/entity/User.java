@@ -28,7 +28,7 @@ public class User {
 	@Column(name = "USER_ID")
 	private String id;
 	 
-	@Column(unique = true, nullable = false)
+	
 	private String userEmail;
 	private String userAccountType;
 	

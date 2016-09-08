@@ -24,6 +24,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
 	@Override
 	public Movie findOne(String movieId) {
+		System.out.println(movieId);
 		return em.find(Movie.class, movieId);
 	}
 

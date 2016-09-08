@@ -32,7 +32,9 @@ public class Comment {
 
 
 	public Comment(){
-		id = UUID.randomUUID().toString();
+		id = UUID.randomUUID().toString();	
+		System.out.println(id + " constructor ");
+		
 	}
 
 
@@ -42,6 +44,7 @@ public class Comment {
 
 	public void setId(String id) {
 		this.id = id;
+		System.out.println(id + " set");
 	}
 
 	@ManyToOne

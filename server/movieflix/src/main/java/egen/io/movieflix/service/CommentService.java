@@ -10,17 +10,9 @@ public interface CommentService {
 
 
 	public List<Comment> findAll();
-	
-
-	public Comment create(String commentId, String userId, String message);
-
-
 	public Comment findOne(String commentId);
-
-
-	public void remove(String commentId);
-
-
-	public Comment update(String commentId, Comment comment); 
+    public void remove(String commentId);
+    public Comment update(String commentId, Comment comment);
+   public Comment create(Comment comment); 
 
 }

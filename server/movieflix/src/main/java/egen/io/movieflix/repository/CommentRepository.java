@@ -11,12 +11,12 @@ public interface CommentRepository {
 
 	public List<Comment> findAll();
 
-	public Comment create(String movieId, String userId, String message);
-
 	public Comment findOne(String commentId);
 
 	public void delete(Comment existing);
 
 	public Comment update(Comment comment);
+
+	public Comment create(Comment comment);
 	
 }

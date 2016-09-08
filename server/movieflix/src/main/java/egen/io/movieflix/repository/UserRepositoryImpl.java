@@ -24,6 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User findOne(String userId) {
+		System.out.println(userId);
 		return em.find(User.class, userId);
 	}
 

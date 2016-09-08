@@ -1,6 +1,7 @@
 package egen.io.movieflix.repository;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,8 +35,15 @@ public class CommentRepositoryImpl implements CommentRepository{
 	}
 
     @Override
-	public Comment create(String movieId, String userId,String message) {
-	
+	public Comment create(Comment comment) {
+    	
+    	System.out.println("Hello");
+    	em.persist(comment);
+    	return comment;
+    	
+    	
+    	
+/*	     System.out.println(x);
 		Comment c = new Comment();
 		Movie m = movieRepository.findOne(movieId);
 		User u = userRepository.findOne(userId);
@@ -45,12 +53,12 @@ public class CommentRepositoryImpl implements CommentRepository{
 		em.persist(c);
 		return c;
 		
-		/*	Movie m = movieRepository.findOne(movie.getId());
+			Movie m = movieRepository.findOne(movie.getId());
 		User u = userRepository.findOne(user.getId());
-		Comment c = ((CommentRepositoryImpl) em).create(m, u);*/
+		Comment c = ((CommentRepositoryImpl) em).create(m, u);
 	   // em.persist(c);
 	    //return c; 
-	
+*/	
 	}
 
 	@Override
