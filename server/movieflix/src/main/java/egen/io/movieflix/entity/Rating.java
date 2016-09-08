@@ -25,7 +25,6 @@ public class Rating {
 @Column(name = "RATING_ID")
 private String id; 
 
-private String ratingGrade;
 private double averageRating;
 
 @Column(unique = true, nullable = false)
@@ -68,18 +67,10 @@ public void setMovieRanking(int movieRanking) {
 public void setId(String id) {
 	this.id = id;
 }
-public String getRatingGrade() {
-	return ratingGrade;
-}
-
-public void setRatingGrade(String ratingGrade) {
-	this.ratingGrade = ratingGrade;
-}
-
 
 @Override
 public String toString() {
-	return "Rating [id=" + id + ", ratingGrade=" + ratingGrade + ", averageRating=" + averageRating + ", movieRanking="
+	return "Rating [id=" + id + ", averageRating=" + averageRating + ", movieRanking="
 			+ movieRanking + "]";
 }
 }

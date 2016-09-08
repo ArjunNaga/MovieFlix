@@ -20,33 +20,33 @@ import egen.io.movieflix.service.CommentService;
 public class CommentController {
 
 	@Autowired
-	private CommentService movie_userService;
+	private CommentService commentService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List <Comment> findAll() {
-		return movie_userService.findAll(); 
+		return commentService.findAll(); 
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Comment create(@RequestBody Comment comment){
 		System.out.println("Controller" + comment.getMessage());
-		return movie_userService.create(comment);
+		return commentService.create(comment);
 	}
 	
 	
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
 	public  Comment findOne(@PathVariable("id") String commentId) {
-		return movie_userService.findOne(commentId);
+		return commentService.findOne(commentId);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public  Comment update(@PathVariable("id") String commentId, @RequestBody Comment comment) {
-		return movie_userService.update(commentId,comment);
+		return commentService.update(commentId,comment);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "{id}")
 	public void delete(@PathVariable("id") String commentId) {
-		movie_userService.remove(commentId); 
+		commentService.remove(commentId); 
 	}
 }

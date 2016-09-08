@@ -2,6 +2,7 @@ package egen.io.movieflix.entity;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,7 +34,6 @@ public class Comment {
 
 	public Comment(){
 		id = UUID.randomUUID().toString();	
-		System.out.println(id + " constructor ");
 		
 	}
 
@@ -44,10 +44,9 @@ public class Comment {
 
 	public void setId(String id) {
 		this.id = id;
-		System.out.println(id + " set");
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	public User getUser() {
@@ -58,7 +57,7 @@ public class Comment {
 		this.user = user;
 	}
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Movie movie;
 
 	public Movie getMovie() {

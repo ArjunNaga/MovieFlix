@@ -15,28 +15,28 @@ import egen.io.movieflix.repository.CommentRepository;
 public class CommentServiceImpl implements CommentService {
 
     @Autowired
-	private CommentRepository movie_userRepository;
+	private CommentRepository commentRepository;
     
 	@Override
 	public List<Comment> findAll() {
-		return movie_userRepository.findAll();
+		return commentRepository.findAll();
 	}
 
 	@Transactional
 	@Override
 	public Comment create(Comment comment) {
 		
-		Comment existing = movie_userRepository.create(comment);
+		Comment existing = commentRepository.create(comment);
 		System.out.println("Exception");
 		/*if (existing != null) { 
 			throw new CommentAlreadyExistException("Comment already exists"); 
 		}*/
-		return movie_userRepository.create(comment);
+		return commentRepository.create(comment);
 	}
 
 	@Override
 	public Comment findOne(String commentId) {
-		Comment comment = movie_userRepository.findOne(commentId);
+		Comment comment = commentRepository.findOne(commentId);
 		if (comment == null) {
 			throw new CommentNotFoundException("Comment not found"); 
 		}
@@ -46,21 +46,21 @@ public class CommentServiceImpl implements CommentService {
 	@Transactional
 	@Override
 	public Comment update(String commentId, Comment comment) {
-		Comment existing = movie_userRepository.findOne(commentId);
+		Comment existing = commentRepository.findOne(commentId);
 		if (existing == null) {
 			throw new CommentNotFoundException("Comment not found");
 		}
-		return movie_userRepository.update(comment);
+		return commentRepository.update(comment);
 	}
 
 	@Transactional
 	@Override
 	public void remove(String commentId) {
-		Comment existing = movie_userRepository.findOne(commentId);
+		Comment existing = commentRepository.findOne(commentId);
 		if (existing == null) {
 			throw new CommentNotFoundException("Comment not found");
 		}
-		movie_userRepository.delete(existing);
+		commentRepository.delete(existing);
 	}
 
 }
