@@ -8,8 +8,15 @@ import egen.io.movieflix.entity.User;
 
 public interface CommentRepository {
 
-	public Comment create(Movie movie, User user);
 
 	public List<Comment> findAll();
+
+	public Comment create(String movieId, String userId, String message);
+
+	public Comment findOne(String commentId);
+
+	public void delete(Comment existing);
+
+	public Comment update(Comment comment);
 	
 }

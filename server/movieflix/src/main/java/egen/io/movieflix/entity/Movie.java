@@ -26,7 +26,7 @@ public class Movie {
 	@Column(name = "MOVIE_ID")
 	private String id; 
 	
-	@Column(nullable = false, unique = true)
+	@Column(unique = true)
     private String Title;
     private int Year;
     private String Rated;

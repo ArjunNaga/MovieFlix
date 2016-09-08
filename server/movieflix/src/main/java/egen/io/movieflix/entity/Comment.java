@@ -1,35 +1,40 @@
 package egen.io.movieflix.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "MOVIES_USERS")
 @NamedQueries({
 	@NamedQuery(name = "Comment.findAll", query = "SELECT c from Comment c")
 })
 public class Comment {
 
 	@Id
-	@GeneratedValue
-	@Column(name = "MOVIE_USER_ID")
+	@Column(name = "COMMENT_ID")
 	private String id;
-	private String comment;
-	private String rating;
+	private String message;
 	
-	public String getRating() {
-		return rating;
+	
+	public String getMessage() {
+		return message;
 	}
 
-	public void setRating(String rating) {
-		this.rating = rating;
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
+
+
+	public Comment(){
+		id = UUID.randomUUID().toString();
+	}
+
 
 	public String getId() {
 		return id;
@@ -37,14 +42,6 @@ public class Comment {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
 	}
 
 	@ManyToOne
@@ -68,4 +65,8 @@ public class Comment {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
+
+
+	
+	
 }

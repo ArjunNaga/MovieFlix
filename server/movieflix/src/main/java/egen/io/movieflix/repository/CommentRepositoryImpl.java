@@ -28,20 +28,51 @@ public class CommentRepositoryImpl implements CommentRepository{
 
 
 	@Override
-	public Comment create(Movie movie, User user) {
-	
-		Movie m = movieRepository.findOne(movie.getId());
-		User u = userRepository.findOne(user.getId());
-		Comment mu = ((CommentRepositoryImpl) em).create(m, u);
-	    em.persist(mu);
-	    return mu; 
-	}
- 
-
-	@Override
 	public List<Comment> findAll() {
 		TypedQuery<Comment> query = em.createNamedQuery("Comment.findAll", Comment.class);
 		return query.getResultList();
 	}
- 
+
+    @Override
+	public Comment create(String movieId, String userId,String message) {
+	
+		Comment c = new Comment();
+		Movie m = movieRepository.findOne(movieId);
+		User u = userRepository.findOne(userId);
+		c.setMovie(m);
+		c.setUser(u);
+		c.setMessage(message);
+		em.persist(c);
+		return c;
+		
+		/*	Movie m = movieRepository.findOne(movie.getId());
+		User u = userRepository.findOne(user.getId());
+		Comment c = ((CommentRepositoryImpl) em).create(m, u);*/
+	   // em.persist(c);
+	    //return c; 
+	
+	}
+
+	@Override
+	public Comment findOne(String commentId) {
+		return em.find(Comment.class, commentId);
+	}
+	
+	@Override
+	public void delete(Comment existing) {
+		em.remove(existing);
+	}
+
+	@Override
+	public Comment update(Comment comment) {
+		return em.merge(comment);
+	}
+    
 }
+
+
+
+
+
+
+

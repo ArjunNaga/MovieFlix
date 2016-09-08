@@ -32,12 +32,6 @@ public class User {
 	private String userEmail;
 	private String userAccountType;
 	
-	/*@ManyToMany(mappedBy = "users")
-    @JoinTable(name = "Movie_User",
-			joinColumns = @JoinColumn(name = "User_Id", referencedColumnName = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "Movie_Id", referencedColumnName = "movie_id"))
-	private List<Movie> movies;*/
-	
 	public User(){
 	id = UUID.randomUUID().toString();
 	}
