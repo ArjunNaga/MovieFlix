@@ -20,14 +20,16 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Override
 	public List<Movie> findAll() {
-		return movieRepository.findAll();
-	}
+		return movieRepository.findAll();  
+	}  
 
 	@Override
 	public Movie findOne(String movieId) {
 		Movie movie = movieRepository.findOne(movieId);
+		while(movieId!="type"){
 		if (movie == null) {
 			throw new MovieNotFoundException("Movie not found");
+		}
 		}
 		return movie;
 	}
@@ -35,6 +37,7 @@ public class MovieServiceImpl implements MovieService {
 	@Transactional
 	@Override
 	public Movie create(Movie movie) {
+		System.out.println("Thanks for posting");
 		Movie existing = movieRepository.findByName(movie.getTitle());
 		if (existing != null) { 
 			throw new MovieAlreadyExistException("Movie already exists");
@@ -60,5 +63,12 @@ public class MovieServiceImpl implements MovieService {
 			throw new MovieNotFoundException("Movie not found");
 		}
 		movieRepository.delete(existing);
+	}
+
+	@Override
+	public List<Movie> findByType(String movieType) {
+		System.out.println("Service");
+			return movieRepository.findByType(movieType);
+
 	}
 }

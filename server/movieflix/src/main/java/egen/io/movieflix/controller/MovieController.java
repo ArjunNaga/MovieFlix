@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import egen.io.movieflix.entity.Movie;
@@ -44,4 +46,11 @@ public class MovieController {
 	public void delete(@PathVariable("id") String movieId) {
 		movieService.remove(movieId);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,params ="type") 
+	public List<Movie> findByType(@RequestParam("type") String movieType) {
+		System.out.println("Controller");
+		return movieService.findByType(movieType); 
+		} 
+		
 }

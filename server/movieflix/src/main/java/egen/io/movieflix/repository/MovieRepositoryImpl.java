@@ -16,11 +16,13 @@ public class MovieRepositoryImpl implements MovieRepository {
 	@PersistenceContext
 	private EntityManager em;
 
+
 	@Override
 	public List<Movie> findAll() {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findAll", Movie.class);
-		return query.getResultList();
-	}
+		return query.getResultList();		
+	} 
+
 
 	@Override
 	public Movie findOne(String movieId) {
@@ -56,4 +58,11 @@ public class MovieRepositoryImpl implements MovieRepository {
 		em.remove(existing);
 	}
 
+	@Override
+	public List<Movie> findByType(String movieType) {
+		System.out.println("Repository");
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByType", Movie.class);
+		query.setParameter("ptype", movieType);
+	    return query.getResultList();		
+}
 }

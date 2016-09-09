@@ -28,9 +28,9 @@ public class CommentServiceImpl implements CommentService {
 		
 		Comment existing = commentRepository.create(comment);
 		System.out.println("Exception");
-		/*if (existing != null) { 
+		if (existing != null) { 
 			throw new CommentAlreadyExistException("Comment already exists"); 
-		}*/
+		}
 		return commentRepository.create(comment);
 	}
 

@@ -18,7 +18,8 @@ import javax.persistence.Table;
 @Table
 @NamedQueries({
 	@NamedQuery(name = "Movie.findAll", query = "SELECT m from Movie m"),
-	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle")
+	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle"),
+	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype")
 })
 public class Movie {
 

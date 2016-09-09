@@ -25,10 +25,10 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@Column(name = "USER_ID")
+	@Column(name = "USER_ID") 
 	private String id;
 	 
-	
+	//@Column(unique = true, nullable =false)
 	private String userEmail;
 	private String userAccountType;
 	

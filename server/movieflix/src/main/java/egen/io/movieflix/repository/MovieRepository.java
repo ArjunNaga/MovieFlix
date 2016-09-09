@@ -17,4 +17,8 @@ public interface MovieRepository {
 	public void delete(Movie existing);
 
 	public Movie findByName(String movieName);
+	
+	public List<Movie> findByType(String movieType);
+
 }
+  
