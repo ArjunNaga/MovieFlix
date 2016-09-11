@@ -1,6 +1,5 @@
 package egen.io.movieflix.entity;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -8,10 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +16,9 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = "Movie.findAll", query = "SELECT m from Movie m"),
 	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle"),
-	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype")
+	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype"),
+	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre=:pgenre"),
+	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear")
 })
 public class Movie {
 
@@ -27,26 +26,38 @@ public class Movie {
 	@Column(name = "MOVIE_ID")
 	private String id; 
 	
-	@Column(unique = true)
+	@Column(unique = true, nullable=false)
     private String Title;
+	@Column(nullable=false)
     private int Year;
     private String Rated;
+	@Column(nullable=false)
     private String Released;
+	@Column(nullable=false)
     private String Runtime;
+	@Column(nullable=false)
     private String Genre;
+	@Column(nullable=false)
     private String Director;
+	@Column(nullable=false)
     private String Writer;
+	@Column(nullable=false)
     private String Actors;
+	@Column(nullable=false)
     private String Plot;
+	@Column(nullable=false)
     private String Language;
+	@Column(nullable=false)
     private String Country;
     private String Awards;
+	@Column(nullable=false, unique = true)
     private String Poster;
     private int Metascore;
     private double imdbRating;
     private long imdbVotes;
     @Column(unique = true)
     private String imdbID;
+	@Column(nullable=false)
     private String Type;
 
 
@@ -209,7 +220,6 @@ public class Movie {
 	public void setType(String type) {
 		Type = type;
 	}
-/*
 	public List<User> getUsers() {
 		return users;
 	}
@@ -219,7 +229,7 @@ public class Movie {
 	}
 
 	@ManyToMany
-	private List<User> users;*/
+	private List<User> users;
 
 	public Movie(){
 	id = UUID.randomUUID().toString();

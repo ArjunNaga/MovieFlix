@@ -19,4 +19,6 @@ public interface CommentRepository {
 
 	public Comment create(Comment comment);
 	
+	public List<Comment> findByMovie(String movieId, String userId);
+	
 }

@@ -14,5 +14,6 @@ public interface CommentService {
     public void remove(String commentId);
     public Comment update(String commentId, Comment comment);
    public Comment create(Comment comment); 
+   public List<Comment> findByMovie(String movieId, String userId);
 
 }

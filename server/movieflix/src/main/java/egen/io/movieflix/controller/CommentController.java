@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import egen.io.movieflix.entity.Movie;
@@ -29,7 +30,6 @@ public class CommentController {
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Comment create(@RequestBody Comment comment){
-		System.out.println("Controller" + comment.getMessage());
 		return commentService.create(comment);
 	}
 	
@@ -49,4 +49,10 @@ public class CommentController {
 	public void delete(@PathVariable("id") String commentId) {
 		commentService.remove(commentId); 
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,params ={"movie","user"}) 
+	public List<Comment> findByMovie(@RequestParam("movie") String movieId, @RequestParam("user") String userId) {
+		System.out.println("Controller");
+		return commentService.findByMovie(movieId, userId); 
+		} 
 }

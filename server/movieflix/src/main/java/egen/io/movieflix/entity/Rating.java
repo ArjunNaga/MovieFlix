@@ -24,11 +24,13 @@ public class Rating {
 @Id
 @Column(name = "RATING_ID")
 private String id; 
+private double userRating;
 
 private double averageRating;
-
 @Column(unique = true, nullable = false)
 private int movieRanking;
+
+
 public double getAverageRating() {
 	return averageRating;
 }
@@ -52,11 +54,17 @@ public Rating(){
 	id = UUID.randomUUID().toString();
 }
 
+public double getUserRating() {
+	return userRating;
+}
+
+public void setUserRating(double userRating) {
+	this.userRating = userRating;
+}
 
 public String getId() {
 	return id;
 }
-
 
 public int getMovieRanking() {
 	return movieRanking;

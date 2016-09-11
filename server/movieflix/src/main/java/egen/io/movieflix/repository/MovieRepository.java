@@ -20,5 +20,9 @@ public interface MovieRepository {
 	
 	public List<Movie> findByType(String movieType);
 
+	public List<Movie> findByGenre(String movieGenre);
+	
+	public List<Movie> findByYear(int movieYear);
+
 }
   

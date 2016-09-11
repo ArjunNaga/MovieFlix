@@ -17,6 +17,10 @@ public interface MovieService {
 
 	public List<Movie> findByType(String movieType);
 
-	public List<Movie> findAll(); 
+	public List<Movie> findAll();
+
+	public List<Movie> findByGenre(String movieGenre);
+	
+	public List<Movie> findByYear(int movieYear);
 	
 }

@@ -1,17 +1,12 @@
 package egen.io.movieflix.entity;
 
-import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,11 +22,30 @@ public class User {
 	@Id
 	@Column(name = "USER_ID") 
 	private String id;
-	 
-	//@Column(unique = true, nullable =false)
+	
+	@Column(unique = true, nullable =false)
+	private String userName;
+	
+	@Column(nullable =false)
+	private String password;
+	
+	@Column(unique = true, nullable =false)
 	private String userEmail;
 	private String userAccountType;
 	
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public User(){
 	id = UUID.randomUUID().toString();
 	}
@@ -55,6 +69,8 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userEmail=" + userEmail + ", userAccountType=" + userAccountType + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", userEmail=" + userEmail
+				+ ", userAccountType=" + userAccountType + "]";
 	}
+
 }

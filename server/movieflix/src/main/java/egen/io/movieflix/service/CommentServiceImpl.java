@@ -25,12 +25,7 @@ public class CommentServiceImpl implements CommentService {
 	@Transactional
 	@Override
 	public Comment create(Comment comment) {
-		
 		Comment existing = commentRepository.create(comment);
-		System.out.println("Exception");
-		if (existing != null) { 
-			throw new CommentAlreadyExistException("Comment already exists"); 
-		}
 		return commentRepository.create(comment);
 	}
 
@@ -61,6 +56,15 @@ public class CommentServiceImpl implements CommentService {
 			throw new CommentNotFoundException("Comment not found");
 		}
 		commentRepository.delete(existing);
+	}
+
+	@Override
+	public List<Comment> findByMovie(String movieId, String userId) {
+		System.out.println("Service");
+		if (commentRepository.findByMovie(movieId, userId) == null) {
+			throw new CommentNotFoundException("Comment not found");
+		}
+		return commentRepository.findByMovie(movieId, userId);
 	}
 
 }

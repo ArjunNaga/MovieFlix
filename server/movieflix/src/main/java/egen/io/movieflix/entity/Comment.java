@@ -12,7 +12,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Comment.findAll", query = "SELECT c from Comment c")
+	@NamedQuery(name = "Comment.findAll", query = "SELECT c from Comment c"),
+	@NamedQuery(name = "Comment.findByMovie", query = "SELECT c from Comment c where c.movie=:pmovie AND c.user=:puser")
 })
 public class Comment {
 
@@ -45,10 +46,12 @@ public class Comment {
 	public void setId(String id) {
 		this.id = id;
 	}
-
+    
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
+
+	
 	public User getUser() {
 		return user;
 	}
@@ -57,6 +60,8 @@ public class Comment {
 		this.user = user;
 	}
 	
+
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Movie movie;
 

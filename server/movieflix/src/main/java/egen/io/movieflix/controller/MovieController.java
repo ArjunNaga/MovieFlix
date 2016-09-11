@@ -31,12 +31,12 @@ public class MovieController {
 	public  Movie findOne(@PathVariable("id") String movieId) {
 		return movieService.findOne(movieId);
 	}
-
+	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public  Movie create(@RequestBody Movie movie) {
 		return movieService.create(movie);
 	}
-
+	
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public  Movie update(@PathVariable("id") String movieId, @RequestBody Movie movie) {
 		return movieService.update(movieId,movie);
@@ -49,8 +49,16 @@ public class MovieController {
 	
 	@RequestMapping(method = RequestMethod.GET,params ="type") 
 	public List<Movie> findByType(@RequestParam("type") String movieType) {
-		System.out.println("Controller");
 		return movieService.findByType(movieType); 
+		} 
+	@RequestMapping(method = RequestMethod.GET,params ="genre") 
+	public List<Movie> findByGenre(@RequestParam("genre") String movieGenre) {
+		return movieService.findByGenre(movieGenre); 
+		} 
+	
+	@RequestMapping(method = RequestMethod.GET,params ="year") 
+	public List<Movie> findByYear(@RequestParam("year") int movieYear) {
+		return movieService.findByYear(movieYear);  
 		} 
 		
 }

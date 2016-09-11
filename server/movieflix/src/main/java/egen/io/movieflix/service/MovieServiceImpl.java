@@ -67,8 +67,18 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<Movie> findByType(String movieType) {
-		System.out.println("Service");
 			return movieRepository.findByType(movieType);
+    }
+
+	@Override
+	public List<Movie> findByGenre(String movieGenre) {
+			return movieRepository.findByGenre(movieGenre);
 
 	}
+
+	@Override
+	public List<Movie> findByYear(int movieYear) { 
+		     return movieRepository.findByYear(movieYear);
+	}
+
 }

@@ -1,7 +1,6 @@
 package egen.io.movieflix.repository;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +8,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import egen.io.movieflix.entity.Comment;
 import egen.io.movieflix.entity.Movie;
@@ -23,6 +24,13 @@ public class CommentRepositoryImpl implements CommentRepository{
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired(required = false)
+	private Movie movie;
+	
+
+	@Autowired(required = false)
+	private User user;
+	
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -36,30 +44,9 @@ public class CommentRepositoryImpl implements CommentRepository{
 
     @Override
 	public Comment create(Comment comment) {
-    	
-    	System.out.println("Hello");
     	em.persist(comment);
     	return comment;
-    	
-    	
-    	
-/*	     System.out.println(x);
-		Comment c = new Comment();
-		Movie m = movieRepository.findOne(movieId);
-		User u = userRepository.findOne(userId);
-		c.setMovie(m);
-		c.setUser(u);
-		c.setMessage(message);
-		em.persist(c);
-		return c;
-		
-			Movie m = movieRepository.findOne(movie.getId());
-		User u = userRepository.findOne(user.getId());
-		Comment c = ((CommentRepositoryImpl) em).create(m, u);
-	   // em.persist(c);
-	    //return c; 
-*/	
-	}
+    }
 
 	@Override
 	public Comment findOne(String commentId) {
@@ -75,7 +62,17 @@ public class CommentRepositoryImpl implements CommentRepository{
 	public Comment update(Comment comment) {
 		return em.merge(comment);
 	}
-    
+
+	@Override
+	public List<Comment> findByMovie(String movieId, String userId) {
+		System.out.println("Repository");
+		TypedQuery<Comment> query = em.createNamedQuery("Comment.findByMovie", Comment.class);
+		movie.setId(movieId);
+		user.setId(userId);
+		query.setParameter("pmovie", movie);
+		query.setParameter("puser", user);
+		return query.getResultList();	 
+    }
 }
 
 
