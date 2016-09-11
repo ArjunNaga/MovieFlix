@@ -9,14 +9,20 @@ import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.eclipse.persistence.logging.SessionLog;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
+@EnableWebMvc
 @EnableTransactionManagement
 public class JPAConfig {
 
@@ -53,4 +59,12 @@ public class JPAConfig {
 		props.setProperty(PersistenceUnitProperties.WEAVING, "false");
 		return props;
 	}
+	
+	   @Bean
+	   public MappingJackson2HttpMessageConverter converter() {
+	       ObjectMapper om = new ObjectMapper();
+	       om.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+	       MappingJackson2HttpMessageConverter mappingConverter = new MappingJackson2HttpMessageConverter(om);
+	       return mappingConverter;
+	   }
 }

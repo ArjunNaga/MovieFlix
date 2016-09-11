@@ -56,6 +56,16 @@ public class MovieController {
 		return movieService.findByGenre(movieGenre); 
 		} 
 	
+	@RequestMapping(method = RequestMethod.GET,params ="director") 
+	public List<Movie> findByDirector(@RequestParam("director") String movieDirector) {
+		return movieService.findByDirector(movieDirector); 
+		} 
+	@RequestMapping(method = RequestMethod.GET,params ="imdbId") 
+	public List<Movie> findByimdbId(@RequestParam("imdbId") String movieimdbId) {
+		return movieService.findByimdbId(movieimdbId); 
+		} 
+	
+	
 	@RequestMapping(method = RequestMethod.GET,params ="year") 
 	public List<Movie> findByYear(@RequestParam("year") int movieYear) {
 		return movieService.findByYear(movieYear);  

@@ -23,4 +23,8 @@ public interface MovieService {
 	
 	public List<Movie> findByYear(int movieYear);
 	
+	public List<Movie> findByDirector(String movieDirector);
+	
+	public List<Movie> findByimdbId(String movieimdbId);
+	
 }

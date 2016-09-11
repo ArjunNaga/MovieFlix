@@ -78,4 +78,17 @@ public class MovieRepositoryImpl implements MovieRepository {
 		query.setParameter("pyear", movieYear);
 	    return query.getResultList();
 	}
+	
+	@Override
+	public List<Movie> findByDirector(String movieDirector) {
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByDirector", Movie.class);
+		query.setParameter("pdirector", movieDirector);
+	    return query.getResultList();		
+}
+	@Override
+	public List<Movie> findByimdbId(String movieimdbId) {
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByimdbId", Movie.class);
+		query.setParameter("pimdbId", movieimdbId);
+	    return query.getResultList();		
+}
 }

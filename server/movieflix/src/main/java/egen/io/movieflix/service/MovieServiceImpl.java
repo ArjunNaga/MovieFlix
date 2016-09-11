@@ -37,10 +37,9 @@ public class MovieServiceImpl implements MovieService {
 	@Transactional
 	@Override
 	public Movie create(Movie movie) {
-		System.out.println("Thanks for posting");
 		Movie existing = movieRepository.findByName(movie.getTitle());
 		if (existing != null) { 
-			throw new MovieAlreadyExistException("Movie already exists");
+			throw new MovieAlreadyExistException("Movie already exists" + movie.getTitle());
 		}
 		return movieRepository.create(movie);
 	}
@@ -75,6 +74,17 @@ public class MovieServiceImpl implements MovieService {
 			return movieRepository.findByGenre(movieGenre);
 
 	}
+	
+	@Override
+	public List<Movie> findByDirector(String movieDirector) {
+			return movieRepository.findByDirector(movieDirector);
+    }
+
+	@Override
+	public List<Movie> findByimdbId(String movieimdbId) {
+			return movieRepository.findByimdbId(movieimdbId);
+	}
+
 
 	@Override
 	public List<Movie> findByYear(int movieYear) { 

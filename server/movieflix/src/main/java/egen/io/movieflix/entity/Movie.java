@@ -11,6 +11,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table
 @NamedQueries({
@@ -18,7 +20,9 @@ import javax.persistence.Table;
 	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle"),
 	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype"),
 	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre=:pgenre"),
-	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear")
+	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear"),
+	@NamedQuery(name = "Movie.findByDirector", query = "SELECT m from Movie m where m.Director=:pdirector"),
+	@NamedQuery(name = "Movie.findByimdbId", query = "SELECT m from Movie m where m.imdbId=:pimdbId")
 })
 public class Movie {
 
@@ -27,37 +31,71 @@ public class Movie {
 	private String id; 
 	
 	@Column(unique = true, nullable=false)
+	@JsonProperty("Title")
     private String Title;
+	
 	@Column(nullable=false)
+	@JsonProperty("Year")
     private int Year;
+	
+	@JsonProperty("Rated")
     private String Rated;
+	
 	@Column(nullable=false)
+	@JsonProperty("Released")
     private String Released;
+	
 	@Column(nullable=false)
+	@JsonProperty("Runtime")
     private String Runtime;
+	
 	@Column(nullable=false)
+	@JsonProperty("Genre")
     private String Genre;
+	
 	@Column(nullable=false)
+	@JsonProperty("Director")
     private String Director;
+	
 	@Column(nullable=false)
+	@JsonProperty("Writer")
     private String Writer;
+	
 	@Column(nullable=false)
+	@JsonProperty("Actors")
     private String Actors;
+	
 	@Column(nullable=false)
+	@JsonProperty("Plot")
     private String Plot;
+	
 	@Column(nullable=false)
+	@JsonProperty("Language")
     private String Language;
+	
 	@Column(nullable=false)
+	@JsonProperty("Country")
     private String Country;
+	
+	@JsonProperty("Awards")
     private String Awards;
+	
 	@Column(nullable=false, unique = true)
+	@JsonProperty("Poster")
     private String Poster;
+	
+	@JsonProperty("Metascore")
     private int Metascore;
+	
     private double imdbRating;
+    
     private long imdbVotes;
+    
     @Column(unique = true)
-    private String imdbID;
+    private String imdbId;
+    
 	@Column(nullable=false)
+	@JsonProperty("Type")
     private String Type;
 
 
@@ -206,11 +244,11 @@ public class Movie {
 	}
 
 	public String getImdbID() {
-		return imdbID;
+		return imdbId;
 	}
 
 	public void setImdbID(String imdbID) {
-		this.imdbID = imdbID;
+		this.imdbId = imdbID;
 	}
 
 	public String getType() {
@@ -234,4 +272,18 @@ public class Movie {
 	public Movie(){
 	id = UUID.randomUUID().toString();
 	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", Title=" + Title + ", Year=" + Year + ", Rated=" + Rated + ", Released=" + Released
+				+ ", Runtime=" + Runtime + ", Genre=" + Genre + ", Director=" + Director + ", Writer=" + Writer
+				+ ", Actors=" + Actors + ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country
+				+ ", Awards=" + Awards + ", Poster=" + Poster + ", Metascore=" + Metascore + ", imdbRating="
+				+ imdbRating + ", imdbVotes=" + imdbVotes + ", imdbId=" + imdbId + ", Type=" + Type + ", users=" + users
+				+ "]";
+	}
+	
+	
 }
+
+
