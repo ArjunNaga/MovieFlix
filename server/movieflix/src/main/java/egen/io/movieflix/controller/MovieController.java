@@ -1,6 +1,7 @@
 package egen.io.movieflix.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -69,5 +70,4 @@ public class MovieController {
 	public List<Movie> findByYear(@RequestParam("year") int movieYear) {
 		return movieService.findByYear(movieYear);  
 		} 
-		
-}
+	}

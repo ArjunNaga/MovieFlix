@@ -1,13 +1,14 @@
 package egen.io.movieflix.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import egen.io.movieflix.entity.Movie;
 
 public interface MovieRepository {
 
 	public List<Movie> findAll();
-
+	
 	public Movie findOne(String movieId);
 
 	public Movie create(Movie movie);
@@ -27,6 +28,8 @@ public interface MovieRepository {
 	public List<Movie> findByDirector(String movieDirector);
 
 	public List<Movie> findByimdbId(String movieimdbId);
+
+	public List<Movie> findByValues(Map<String, String> values);
 	
 }
   

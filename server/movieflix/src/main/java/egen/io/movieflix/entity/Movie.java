@@ -19,10 +19,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 	@NamedQuery(name = "Movie.findAll", query = "SELECT m from Movie m"),
 	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle"),
 	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype"),
-	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre=:pgenre"),
-	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear"),
-	@NamedQuery(name = "Movie.findByDirector", query = "SELECT m from Movie m where m.Director=:pdirector"),
-	@NamedQuery(name = "Movie.findByimdbId", query = "SELECT m from Movie m where m.imdbId=:pimdbId")
+	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre like :pgenre"),
+	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear ORDER BY m.Year DESC"),
+	@NamedQuery(name = "Movie.findByDirector", query = "SELECT m from Movie m where m.Director like :pdirector"),
+	@NamedQuery(name = "Movie.findByimdbId", query = "SELECT m from Movie m where m.imdbId=:pimdbId"),
+	@NamedQuery(name = "Movie.findByTypeSortByYear", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.Year DESC"),
+	@NamedQuery(name = "Movie.findByTypeSortByRating", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbRating DESC"),
+	@NamedQuery(name = "Movie.findByTypeimdbVotes", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbVotes DESC"),
 })
 public class Movie {
 

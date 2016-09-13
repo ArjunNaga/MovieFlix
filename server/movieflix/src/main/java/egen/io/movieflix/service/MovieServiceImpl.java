@@ -1,6 +1,7 @@
 package egen.io.movieflix.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -90,5 +91,11 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> findByYear(int movieYear) { 
 		     return movieRepository.findByYear(movieYear);
 	}
+
+	@Override
+	public List<Movie> findByValues(Map<String, String> values) {
+		return movieRepository.findByValues(values);
+	}
+	
 
 }

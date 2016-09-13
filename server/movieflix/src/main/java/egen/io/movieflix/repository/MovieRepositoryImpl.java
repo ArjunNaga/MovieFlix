@@ -1,6 +1,7 @@
 package egen.io.movieflix.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import egen.io.movieflix.entity.Comment;
 import egen.io.movieflix.entity.Movie;
 
 @Repository
@@ -15,14 +17,13 @@ public class MovieRepositoryImpl implements MovieRepository {
 
 	@PersistenceContext
 	private EntityManager em;
-
+	
 
 	@Override
 	public List<Movie> findAll() {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findAll", Movie.class);
-		return query.getResultList();		
-	} 
-
+		return query.getResultList();
+	}
 
 	@Override
 	public Movie findOne(String movieId) {
@@ -67,7 +68,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 	@Override
 	public List<Movie> findByGenre(String movieGenre) {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByGenre", Movie.class);
-		query.setParameter("pgenre", movieGenre);
+		query.setParameter("pgenre", "%"+movieGenre+"%");
 	    return query.getResultList();		
 }
 
@@ -91,4 +92,11 @@ public class MovieRepositoryImpl implements MovieRepository {
 		query.setParameter("pimdbId", movieimdbId);
 	    return query.getResultList();		
 }
+
+	@Override
+	public List<Movie> findByValues(Map<String, String> values) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
