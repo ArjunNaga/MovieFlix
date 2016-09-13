@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
-@EnableWebMvc
 @EnableTransactionManagement
 public class JPAConfig {
 
