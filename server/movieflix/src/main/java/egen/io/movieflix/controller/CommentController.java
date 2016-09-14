@@ -52,7 +52,6 @@ public class CommentController {
 	
 	@RequestMapping(method = RequestMethod.GET,params ={"movie","user"}) 
 	public List<Comment> findByMovie(@RequestParam("movie") String movieId, @RequestParam("user") String userId) {
-		System.out.println("Controller");
 		return commentService.findByMovie(movieId, userId); 
 		} 
 }

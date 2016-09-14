@@ -1,7 +1,6 @@
 package egen.io.movieflix.repository;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,7 +8,6 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import egen.io.movieflix.entity.Comment;
 import egen.io.movieflix.entity.Movie;
 
 @Repository
@@ -72,8 +70,9 @@ public class MovieRepositoryImpl implements MovieRepository {
 		    querySort = em.createNamedQuery("Movie.findByType", Movie.class);}
 		
 		querySort.setParameter("ptype", movieType);
-        List<Movie> movies = querySort.getResultList();
+        List <Movie> movies =querySort.getResultList();
         return movies;
+       
 	}
 		
 
@@ -90,8 +89,9 @@ public class MovieRepositoryImpl implements MovieRepository {
 		    querySort = em.createNamedQuery("Movie.findByGenre", Movie.class);}
 		
 		querySort.setParameter("pgenre", "%"+movieGenre+"%");
-        List<Movie> movies = querySort.getResultList();
+        List <Movie> movies =querySort.getResultList();
         return movies;
+       
 }
 
 
@@ -106,7 +106,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 		    querySort = em.createNamedQuery("Movie.findByYear", Movie.class);}
 		
 		querySort.setParameter("pyear", movieYear);
-        List<Movie> movies = querySort.getResultList();
+        List <Movie> movies =querySort.getResultList();
         return movies;
 	}
 	

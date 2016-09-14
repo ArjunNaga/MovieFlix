@@ -67,8 +67,8 @@ public class CommentRepositoryImpl implements CommentRepository{
 	public List<Comment> findByMovie(String movieId, String userId) {
 		System.out.println("Repository");
 		TypedQuery<Comment> query = em.createNamedQuery("Comment.findByMovie", Comment.class);
-		movie.setId(movieId);
-		user.setId(userId);
+		movie= movieRepository.findOne(movieId);
+		user = userRepository.findOne(userId);
 		query.setParameter("pmovie", movie);
 		query.setParameter("puser", user);
 		return query.getResultList();	 
