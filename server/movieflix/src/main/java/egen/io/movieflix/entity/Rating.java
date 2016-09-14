@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table
 @NamedQueries({
 	@NamedQuery(name = "Rating.findAll", query = "SELECT r from Rating r"),
-	@NamedQuery(name = "Rating.findByRanking", query = "SELECT r from Rating r where r.movieRanking=:pmovieRanking")
+	@NamedQuery(name = "Rating.findByRanking", query = "SELECT r from Rating r where r.movieRanking=:pmovieRanking ORDER BY r.movieRanking")
 	})
 public class Rating {
 

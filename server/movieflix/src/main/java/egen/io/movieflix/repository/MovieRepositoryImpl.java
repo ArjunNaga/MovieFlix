@@ -17,7 +17,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+	 
 
 	@Override
 	public List<Movie> findAll() {
@@ -60,24 +60,54 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public List<Movie> findByType(String movieType) {
-		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByType", Movie.class);
-		query.setParameter("ptype", movieType);
-	    return query.getResultList();		
-}
+	public List<Movie> findByType(String movieType, String sortType) {
+		TypedQuery<Movie> querySort = null;
+		if (sortType.equals("year")){
+			querySort = em.createNamedQuery("Movie.findByTypeSortByYear", Movie.class);}
+		else if (sortType.equals("rating")){
+			querySort = em.createNamedQuery("Movie.findByTypeSortByimdbRating", Movie.class);}
+		else if(sortType.equals("votes")){
+			querySort = em.createNamedQuery("Movie.findByTypeSortByimdbVotes", Movie.class);}
+		else{
+		    querySort = em.createNamedQuery("Movie.findByType", Movie.class);}
+		
+		querySort.setParameter("ptype", movieType);
+        List<Movie> movies = querySort.getResultList();
+        return movies;
+	}
+		
+
 	@Override
-	public List<Movie> findByGenre(String movieGenre) {
-		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByGenre", Movie.class);
-		query.setParameter("pgenre", "%"+movieGenre+"%");
-	    return query.getResultList();		
+	public List<Movie> findByGenre(String movieGenre, String sortType) {
+		TypedQuery<Movie> querySort = null;
+		if (sortType.equals("year")){
+			querySort = em.createNamedQuery("Movie.findByGenreSortByYear", Movie.class);}
+		else if (sortType.equals("rating")){
+			querySort = em.createNamedQuery("Movie.findByGenreSortByimdbRating", Movie.class);}
+		else if(sortType.equals("votes")){
+			querySort = em.createNamedQuery("Movie.findByGenreSortByimdbVotes", Movie.class);}
+		else{
+		    querySort = em.createNamedQuery("Movie.findByGenre", Movie.class);}
+		
+		querySort.setParameter("pgenre", "%"+movieGenre+"%");
+        List<Movie> movies = querySort.getResultList();
+        return movies;
 }
 
 
 	@Override
-	public List<Movie> findByYear(int movieYear) {
-		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByYear", Movie.class);
-		query.setParameter("pyear", movieYear);
-	    return query.getResultList();
+	public List<Movie> findByYear(int movieYear, String sortType) {
+		TypedQuery<Movie> querySort = null;
+		if (sortType.equals("rating")){
+			querySort = em.createNamedQuery("Movie.findByYearSortByimdbRating", Movie.class);}
+		else if(sortType.equals("votes")){
+			querySort = em.createNamedQuery("Movie.findByYearSortByimdbVotes", Movie.class);}
+		else{
+		    querySort = em.createNamedQuery("Movie.findByYear", Movie.class);}
+		
+		querySort.setParameter("pyear", movieYear);
+        List<Movie> movies = querySort.getResultList();
+        return movies;
 	}
 	
 	@Override
@@ -92,11 +122,4 @@ public class MovieRepositoryImpl implements MovieRepository {
 		query.setParameter("pimdbId", movieimdbId);
 	    return query.getResultList();		
 }
-
-	@Override
-	public List<Movie> findByValues(Map<String, String> values) {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
-}

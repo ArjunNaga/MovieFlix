@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import egen.io.movieflix.entity.User;
 import egen.io.movieflix.exception.UserAlreadyExistException;
@@ -60,5 +61,27 @@ public class UserServiceImpl implements UserService {
 			throw new UserNotFoundException("User not found");
 		}
 		userRepository.delete(existing);
+	}
+	
+	 @Validated
+	 public Boolean validateUser(User user){
+		
+		String userEmail_Pattern =" ^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		String userPassword_Pattern = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
+		
+		
+		if(!user.getUserEmail().matches(userEmail_Pattern)){
+			return false;
+		}
+		else if(user.getUserName().isEmpty()){
+			return false;
+		}
+		else if(!user.getPassword().matches(userPassword_Pattern)){
+			return false;
+		}
+		else if(user.getPassword().length()< 8|| user.getPassword().length()>20){
+			return false;
+		}
+		return true;
 	}
 }

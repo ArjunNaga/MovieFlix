@@ -19,7 +19,7 @@ public class MovieServiceImpl implements MovieService {
 	private MovieRepository movieRepository;
 	
 	
-	@Override
+    @Override
 	public List<Movie> findAll() {
 		return movieRepository.findAll();  
 	}  
@@ -66,13 +66,13 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public List<Movie> findByType(String movieType) {
-			return movieRepository.findByType(movieType);
+	public List<Movie> findByType(String movieType, String sortType) {
+			return movieRepository.findByType(movieType, sortType);
     }
 
 	@Override
-	public List<Movie> findByGenre(String movieGenre) {
-			return movieRepository.findByGenre(movieGenre);
+	public List<Movie> findByGenre(String movieGenre ,String sortType) {
+			return movieRepository.findByGenre(movieGenre, sortType); 
 
 	}
 	
@@ -88,14 +88,8 @@ public class MovieServiceImpl implements MovieService {
 
 
 	@Override
-	public List<Movie> findByYear(int movieYear) { 
-		     return movieRepository.findByYear(movieYear);
+	public List<Movie> findByYear(int movieYear, String sortType) { 
+		     return movieRepository.findByYear(movieYear, sortType);
 	}
-
-	@Override
-	public List<Movie> findByValues(Map<String, String> values) {
-		return movieRepository.findByValues(values);
-	}
-	
 
 }

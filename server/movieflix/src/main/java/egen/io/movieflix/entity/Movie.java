@@ -18,14 +18,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NamedQueries({
 	@NamedQuery(name = "Movie.findAll", query = "SELECT m from Movie m"),
 	@NamedQuery(name = "Movie.findByName", query = "SELECT m from Movie m where m.Title=:ptitle"),
-	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype"),
-	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre like :pgenre"),
+	@NamedQuery(name = "Movie.findByType", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.Type DESC"),
+	@NamedQuery(name = "Movie.findByGenre", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.Genre DESC"),
 	@NamedQuery(name = "Movie.findByYear", query = "SELECT m from Movie m where m.Year=:pyear ORDER BY m.Year DESC"),
 	@NamedQuery(name = "Movie.findByDirector", query = "SELECT m from Movie m where m.Director like :pdirector"),
 	@NamedQuery(name = "Movie.findByimdbId", query = "SELECT m from Movie m where m.imdbId=:pimdbId"),
 	@NamedQuery(name = "Movie.findByTypeSortByYear", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.Year DESC"),
-	@NamedQuery(name = "Movie.findByTypeSortByRating", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbRating DESC"),
-	@NamedQuery(name = "Movie.findByTypeimdbVotes", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbVotes DESC"),
+	@NamedQuery(name = "Movie.findByTypeSortByimdbRating", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbRating DESC"),
+	@NamedQuery(name = "Movie.findByTypeSortByimdbVotes", query = "SELECT m from Movie m where m.Type=:ptype ORDER BY m.imdbVotes DESC"),
+	@NamedQuery(name = "Movie.findByYearSortByimdbRating", query = "SELECT m from Movie m where m.Year=:pyear ORDER BY m.imdbRating DESC"),
+	@NamedQuery(name = "Movie.findByYearSortByimdbVotes", query = "SELECT m from Movie m where m.Year=:pyear ORDER BY m.imdbVotes DESC"),
+	@NamedQuery(name = "Movie.findByGenreSortByYear", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.Year DESC"),
+	@NamedQuery(name = "Movie.findByGenreSortByimdbRating", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.imdbRating DESC"),
+	@NamedQuery(name = "Movie.findByGenreSortByimdbVotes", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.imdbVotes DESC"),
+	
 })
 public class Movie {
 

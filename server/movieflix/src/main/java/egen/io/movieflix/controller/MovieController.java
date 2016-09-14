@@ -48,12 +48,12 @@ public class MovieController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET,params ="type") 
-	public List<Movie> findByType(@RequestParam("type") String movieType) {
-		return movieService.findByType(movieType); 
+	public List<Movie> findByType(@RequestParam("type") String movieType, @RequestParam(required=false ,value="sort") String typeSort) {
+		return movieService.findByType(movieType,typeSort); 
 		} 
 	@RequestMapping(method = RequestMethod.GET,params ="genre") 
-	public List<Movie> findByGenre(@RequestParam("genre") String movieGenre) {
-		return movieService.findByGenre(movieGenre); 
+	public List<Movie> findByGenre(@RequestParam("genre") String movieGenre,  @RequestParam(required=false ,value="sort") String typeSort) {
+		return movieService.findByGenre(movieGenre, typeSort); 
 		} 
 	
 	@RequestMapping(method = RequestMethod.GET,params ="director") 
@@ -65,9 +65,8 @@ public class MovieController {
 		return movieService.findByimdbId(movieimdbId); 
 		} 
 	
-	
 	@RequestMapping(method = RequestMethod.GET,params ="year") 
-	public List<Movie> findByYear(@RequestParam("year") int movieYear) {
-		return movieService.findByYear(movieYear);  
+	public List<Movie> findByYear(@RequestParam("year") int movieYear,  @RequestParam(required=false ,value="sort") String typeSort) {
+		return movieService.findByYear(movieYear, typeSort);  
 		} 
 	}

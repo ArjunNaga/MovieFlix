@@ -16,18 +16,16 @@ public interface MovieService {
 
 	public void remove(String movieId);
 
-	public List<Movie> findByType(String movieType);
+	public List<Movie> findByType(String movieType, String sortType);
 
 	public List<Movie> findAll();
 
-	public List<Movie> findByGenre(String movieGenre);
+	public List<Movie> findByGenre(String movieGenre, String sortType);
 	
-	public List<Movie> findByYear(int movieYear);
+	public List<Movie> findByYear(int movieYear, String sortType);
 	
 	public List<Movie> findByDirector(String movieDirector);
 	
 	public List<Movie> findByimdbId(String movieimdbId);
-
-	public List<Movie> findByValues(Map<String, String> values);
 	
 }
