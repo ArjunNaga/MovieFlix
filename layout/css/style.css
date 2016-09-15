@@ -1,0 +1,47 @@
+body{
+    background-color: black;
+}
+#sidebar-wrapper{
+    background-color: chocolate;
+}
+#images{
+   margin-left: 20px;
+    margin-top: 30px;
+}
+#images img{
+    opacity: 0.7;
+}
+#images img:hover{
+    opacity: 1;
+}
+.col-xs-3{
+    margin-top: 30px;
+}
+.sidebar-nav li a{
+    color:black;
+}
+.sidebar-nav li a:hover{
+    color:orangered;
+    background-color: black;
+}
+.item img{
+    margin-left: 35%;
+}
+
+.btn-group{
+    margin-top: -150px;
+    margin-left: 900px;
+}
+
+#menu-toggle,.btn-warning{
+    background-color: orangered;
+    color: #3c3c3c;
+    font-family: sans-serif;
+    font-style: oblique;
+    border-radius: 5px;
+}
+
+#menu-toggle:hover, .btn-warning:hover{
+    color: black;
+    background-color: gold;
+}
