@@ -1,0 +1,89 @@
+
+body{
+    background-color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#login-box{
+
+    width: 300px;
+    height: 400px;
+    background-color: whitesmoke;
+    box-shadow: 3px 3px black;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 50px;
+    margin: 190px 420px;
+    opacity: 0.95;
+    font-weight: bold;
+}
+
+#login-box h1{
+    margin-top: -15px;
+    color: orangered;
+}
+
+input[type=text],input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1.05em;
+}
+
+input[type=submit] {
+    font-size: 1.1em;
+    font-style: oblique;
+    width: 40%;
+    height: 60%;
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    margin-left: 100px;
+    margin-top: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+input[type=password]{
+-webkit-text-security: disc;
+}
+
+input[type=submit]:hover {
+    background-color: gold;
+    color:black;
+}
+
+form{
+    color: black;
+    font-style: italic;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login{
+margin-left: 90%;
+    width: 95px;
+    height: 35px;
+    background-color: gold;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+#login:hover{
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}

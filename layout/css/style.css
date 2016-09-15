@@ -14,8 +14,21 @@ body{
 #images img:hover{
     opacity: 1;
 }
-.col-xs-3{
+#images img.zoom{
+    zoom: 120%;
+}
+.col-xs-3 {
     margin-top: 30px;
+}
+.col-xs-3:hover{
+    cursor: pointer;
+    height: auto;
+    width: auto;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .sidebar-nav li a{
     color:black;
@@ -25,23 +38,70 @@ body{
     background-color: black;
 }
 .item img{
-    margin-left: 35%;
+    width: 750px;
+    margin-left: 12.5%;
 }
-
 .btn-group{
-    margin-top: -150px;
+    margin-top: -110px;
     margin-left: 900px;
 }
-
 #menu-toggle,.btn-warning{
     background-color: orangered;
-    color: #3c3c3c;
+    color: #a6e1ec;
     font-family: sans-serif;
     font-style: oblique;
     border-radius: 5px;
 }
-
 #menu-toggle:hover, .btn-warning:hover{
     color: black;
     background-color: gold;
 }
+#images{
+    margin-top: 5px;
+}
+
+footer{
+    height: 120px;
+    margin-left: -20px;
+    margin-top: 1050px;
+    background-color: #262626;
+    color: white;
+}
+
+.col-xs-4{
+    text-align: center;
+    cursor: default;
+}
+
+.col-xs-4 h4{
+    color: orangered;
+    cursor: pointer;
+}
+
+.col-xs-4 p{
+    font-size: 0.95em;
+}
+
+.col-xs-4 p:hover{
+    color: goldenrod;
+    background-color: transparent;
+    display: inline-block;
+
+}
+
+.fa-facebook-official{
+    color: #3B5998;
+    background-color: white;
+}
+
+.fa-twitter{
+    color:white;
+    background-color: #2998DF;
+}
+
+.fa-instagram{
+    background: radial-gradient(darkviolet,orange);
+}
+
+
+
