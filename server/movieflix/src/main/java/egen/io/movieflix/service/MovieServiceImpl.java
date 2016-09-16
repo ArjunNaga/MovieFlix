@@ -92,4 +92,10 @@ public class MovieServiceImpl implements MovieService {
 		     return movieRepository.findByYear(movieYear, sortType);
 	}
 
+	@Override
+	public List<Movie> paginatedList(int start, int size) {
+		
+		return movieRepository.paginatedList(start,size);
+	}
+
 }

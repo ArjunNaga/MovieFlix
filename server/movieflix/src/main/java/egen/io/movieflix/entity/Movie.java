@@ -32,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 	@NamedQuery(name = "Movie.findByGenreSortByimdbRating", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.imdbRating DESC"),
 	@NamedQuery(name = "Movie.findByGenreSortByimdbVotes", query = "SELECT m from Movie m where m.Genre like :pgenre ORDER BY m.imdbVotes DESC"),
 	
+	
 })
 public class Movie {
 
@@ -96,8 +97,10 @@ public class Movie {
 	@JsonProperty("Metascore")
     private int Metascore;
 	
+	@JsonProperty("imdbRating")
     private double imdbRating;
     
+	@JsonProperty("imdbVotes")
     private long imdbVotes;
     
     @Column(unique = true)

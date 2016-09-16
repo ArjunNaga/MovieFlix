@@ -28,6 +28,8 @@ public interface MovieRepository {
 	public List<Movie> findByDirector(String movieDirector);
 
 	public List<Movie> findByimdbId(String movieimdbId);
+
+	public List<Movie> paginatedList(int start, int size);
 	
 }
   

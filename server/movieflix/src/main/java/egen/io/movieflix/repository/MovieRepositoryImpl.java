@@ -1,11 +1,11 @@
 package egen.io.movieflix.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import org.springframework.stereotype.Repository;
 
 import egen.io.movieflix.entity.Movie;
@@ -21,6 +21,16 @@ public class MovieRepositoryImpl implements MovieRepository {
 	public List<Movie> findAll() {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findAll", Movie.class);
 		return query.getResultList();
+	}
+	
+
+	@Override
+	public List<Movie> paginatedList(int start, int size) {
+        TypedQuery<Movie>query = em.createNamedQuery("Movie.findAll",Movie.class);
+		List<Movie> list = query.getResultList();
+		if(start+size > list.size()) 
+		return new ArrayList<>();
+		return list.subList(start, start+size);
 	}
 
 	@Override

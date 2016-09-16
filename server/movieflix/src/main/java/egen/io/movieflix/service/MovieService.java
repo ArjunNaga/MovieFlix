@@ -1,10 +1,8 @@
 package egen.io.movieflix.service;
 
 import java.util.List;
-import java.util.Map;
 
 import egen.io.movieflix.entity.Movie;
-import egen.io.movieflix.entity.Rating;
 
 public interface MovieService {
 
@@ -27,5 +25,7 @@ public interface MovieService {
 	public List<Movie> findByDirector(String movieDirector);
 	
 	public List<Movie> findByimdbId(String movieimdbId);
+
+	public List<Movie> paginatedList(int start,int size);
 	
 }

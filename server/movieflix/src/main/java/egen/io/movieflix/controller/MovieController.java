@@ -1,7 +1,6 @@
 package egen.io.movieflix.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,6 +24,11 @@ public class MovieController {
 	@RequestMapping(method = RequestMethod.GET)
 	public List <Movie> findAll() {
 		return movieService.findAll();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET,params="start")
+	public List<Movie> paginatedList(@RequestParam("start") int start,  @RequestParam(value="size") int size){
+		return movieService.paginatedList(start,size);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
