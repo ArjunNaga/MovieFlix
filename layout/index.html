@@ -32,26 +32,19 @@
 </head>
 
 <body>
-
-    <div id="wrapper">
+      <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <img src="images/movieflix_logo.jpg" width="250px" height="200px">
-                <li class="sidebar-brand">
-                </li>
-                <li>
-                    <a href="#"><strong>Dashboard</strong></a>
-                </li>
-
-                <li>
-                    <a href="#"><strong>Movies</strong></a>
-                </li>
-
-                <li>
-                    <a href="#"><strong>TV Series</strong></a>
-                </li>
+                <li class="sidebar-brand"></li>
+                <li><a href="#"><strong>Dashboard</strong></a></li>
+                <li><a href="#"><strong>Movies</strong></a></li>
+                <li><a href="#"><strong>TV Series</strong></a></li>
+             <li><a href="#"><strong>DVD Sale</strong></a></li>
+                <li><a href="#"><strong>Rentals</strong></a></li>
+                <li><a href="#"><strong>New Arrivals</strong></a></li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -68,12 +61,20 @@
         </div>
         <!-- /#page-content-wrapper -->
 
+         <header>
+            <div id="filter">
+                <button type="button" id="find" class="btn btn-warning">Find</button>
+                <ul class="list"><li>Genre</li></ul>
+                <button type="button" id="sort" class="btn btn-warning">Sort</button>
+                <button type="button" id="search" class="btn btn-warning">Search</button >
+                <input type="text" name="Movie" placeholder="Search By Title,Genre or Year">
+            </div>
+         </header>
         <div id="images">
         <div class="btn-group">
            <a href="form.html"><button type="button" class="btn btn-warning">Sign Out</button></a>
         </div>
-
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
+       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2500">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -168,7 +169,6 @@
             </footer>
 </div>
     </div>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
