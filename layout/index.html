@@ -42,7 +42,7 @@
                 <li><a href="#"><strong>Dashboard</strong></a></li>
                 <li><a href="#"><strong>Movies</strong></a></li>
                 <li><a href="#"><strong>TV Series</strong></a></li>
-             <li><a href="#"><strong>DVD Sale</strong></a></li>
+                <li><a href="#"><strong>DVD Sale</strong></a></li>
                 <li><a href="#"><strong>Rentals</strong></a></li>
                 <li><a href="#"><strong>New Arrivals</strong></a></li>
             </ul>
@@ -61,18 +61,66 @@
         </div>
         <!-- /#page-content-wrapper -->
 
-         <header>
-            <div id="filter">
-                <!-- Single button -->
-                <button type="button" id="find" class="btn btn-warning">Find</button>
-                <ul class="list"><li>Genre</li></ul>
-                <button type="button" id="sort" class="btn btn-warning">Sort</button>
-                <button type="button" id="search" class="btn btn-warning">Search</button >
-                <input type="text" name="Movie" placeholder="Search By Title,Genre or Year">
-            </div>
-         </header>
-        <div id="images">
-        <div class="btn-group">
+          <div id="filter">
+              <div class="btn-group">
+                 <select class="btn btn-warning">
+
+                     <option class="dropdown-item" value="movie">Type</option>
+                      <option class="dropdown-item" value="movie">Movie</option>
+                      <option class="dropdown-item" value="series">Series</option>
+                 </select>
+              </div>
+
+
+
+              <div class="btn-group">
+                  <select class="btn btn-warning">
+                  <div class="dropdown-menu">
+
+
+                      <option class="dropdown-item" value="movie">Genre</option>
+                      <option class="dropdown-item" href="#">Action</option>
+                      <option class="dropdown-item" href="#">Adventure</option>
+                      <option class="dropdown-item" href="#">Sci-Fi</option>
+                      <option class="dropdown-item" href="#">Comedy</option>
+                      <option class="dropdown-item" href="#">Drama</option>
+                      <option class="dropdown-item" href="#">Thriller</option>
+                      <option class="dropdown-item" href="#">Crime</option>
+                      <option class="dropdown-item" href="#">Fantasy</option>
+                      <option class="dropdown-item" href="#">History</option>
+                      <option class="dropdown-item" href="#">Mystery</option>
+                      <option class="dropdown-item" href="#">Romance</option>
+                      <option class="dropdown-item" href="#">Western</option>
+                      <option class="dropdown-item" href="#">Family</option>
+                      <option class="dropdown-item" href="#">Horror</option>
+                      <option class="dropdown-item" href="#">Documentary</option>
+                      <option class="dropdown-item" href="#">News</option>
+                      <option class="dropdown-item" href="#">Talk-Show</option>
+                      <option class="dropdown-item" href="#">War</option>
+                  </div>
+                  </select>
+              </div>
+
+              <div class="btn-group">
+                  <select class="btn btn-warning">
+
+                      <option class="dropdown-item" value="sort">Sort</option>
+                      <option class="dropdown-item" value="year">Year</option>
+                      <option class="dropdown-item" value="rating">Rating</option>
+                      <option class="dropdown-item" value="votes">Votes</option>
+                  </select>
+              </div>
+
+              <div class="btn-group">
+                  <input type="text" id="search" placeholder="Title,Genre or Year">
+                  <button type="button" class="btn btn-warning">Search</button>
+              </div>
+          </div>
+
+
+          <div id="images">
+              <!-- Single button -->
+        <div id= "btn" class="btn-group">
            <a href="login.html"><button type="button" class="btn btn-warning">Sign Out</button></a>
         </div>
        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2500">
@@ -145,6 +193,7 @@
 
         <div class="col-xs-3">
         <img src="http://ia.media-imdb.com/images/M/MV5BMTMyOTg0ODQ1OF5BMl5BanBnXkFtZTcwNjc0NTMwNQ@@._V1_SX300.jpg" width="200px" height="300px"></div>
+
     <!-- /#wrapper -->
 
             <footer>

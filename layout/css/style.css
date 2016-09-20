@@ -44,7 +44,7 @@ body{
     width: 750px;
     margin-left: 12.5%;
 }
-.btn-group{
+#btn{
     margin-top: -110px;
     margin-left: 900px;
 }
@@ -52,10 +52,15 @@ body{
     background-color: orangered;
     color: snow;
     font-family: sans-serif;
-    font-style: oblique;
+    font-style: italic;
     border-radius: 5px;
     outline: none;
     margin-top: -5px;
+}
+
+.btn-warning{
+    height: 2em;
+    margin-top: -1px;
 }
 #menu-toggle:hover, .btn-warning:hover{
     color: black;
@@ -109,34 +114,15 @@ footer{
 }
 
 input[type = text]{
-    position: absolute;
+    position: relative;
     border-radius: 15px;
     outline: none;
     height:2.2em;
     width: 90%;
-    margin-top: -35px;
-    margin-left: 250px;
     text-align: center;
     font-style: italic;
     font-weight: bold;
     z-index: 1;
-}
-#find,#sort,#search{
-    background-color: gold;
-    color:black;
-    margin-right: 10px;
-    width: 70px;
-    outline: none;
-}
-#find:hover,#sort:hover,#search:hover{
-    background-color: black;
-    color:snow;
-}
-
-#filter{
-    position: absolute;
-    margin-left:250px;
-    margin-top: -50px;
 }
 
 .list{
@@ -146,4 +132,49 @@ input[type = text]{
 .list:hover{
     display: inline;
     background-color: gold;
+}
+
+#filter{
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -50px;
+    float: left;
+}
+
+#filter .dropdown-menu{
+    background-color: gold;
+    text-align: center;
+}
+
+#filter .dropdown-menu a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#filter .dropdown-menu a:hover{
+    background-color: black;
+    color: white;
+}
+
+#filter .btn-group{
+    padding-left: 30px;
+}
+
+#genre{
+    position: absolute;
+    margin-left: 250px;
+    margin-top:-30px;
+}
+
+#year{
+
+    position: absolute;
+    margin-left: 60px;
+}
+
+#search{
+    width:60%;
+    margin-left: 10px;
+    margin-top: -3px;
 }

@@ -75,3 +75,14 @@ textarea {
     margin-top: 10px;
 }
 
+#com{
+    background-color: orangered;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#cancel{
+    background-color: snow;
+    font-weight: bold;
+    border-radius: 10px;
+}
