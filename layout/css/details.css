@@ -1,0 +1,93 @@
+#movieName{
+    background-color: black;
+    overflow: hidden;
+    margin: auto;
+    padding: 5px;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+}
+.row .col-xs-6, .col-xs-12{
+    background-color: gold;
+    font-size: 1.1em;
+    font-style: italic;
+    font-family: Tahoma, Geneva, sans-serif;
+    border: 1px solid black;
+    width:50.1%;
+    margin-left: 350px;
+
+}
+#title{
+    margin-bottom: 5px;
+
+}
+
+.row h4{
+    font-style: italic;
+    color: orangered;
+    text-align: center;
+}
+
+#foot .col-xs-4{
+    background-color: #262626;
+}
+
+.col-xs-4{
+    text-align: center;
+    cursor: default;
+}
+
+.col-xs-4 h4{
+    color: orangered;
+    cursor: pointer;
+}
+
+.col-xs-4 p{
+    font-size: 0.95em;
+    color:snow;
+}
+
+.col-xs-4 p:hover{
+    color: goldenrod;
+    background-color: transparent;
+    display: inline-block;
+
+}
+
+textarea {
+    width: 60%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Tahoma, Geneva, sans-serif;
+    outline: none;
+}
+
+#comment{
+    margin-left: 400px;
+    margin-top: 10px;
+}
+
+#com{
+    background-color: orangered;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#cancel{
+    background-color: snow;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#rate select{
+    background-color: darkorange;
+    margin-left: 70%;
+}
