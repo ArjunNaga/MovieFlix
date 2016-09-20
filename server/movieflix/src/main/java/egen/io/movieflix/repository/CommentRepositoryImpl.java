@@ -9,8 +9,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-
 import egen.io.movieflix.entity.Comment;
 import egen.io.movieflix.entity.Movie;
 import egen.io.movieflix.entity.User;
@@ -44,6 +42,10 @@ public class CommentRepositoryImpl implements CommentRepository{
 
     @Override
 	public Comment create(Comment comment) {
+    	User user = em.find(User.class, comment.getUser().getId());
+    	Movie movie = em.find(Movie.class, comment.getMovie().getId());
+    	comment.setUser(user);
+    	comment.setMovie(movie);
     	em.persist(comment);
     	return comment;
     }
