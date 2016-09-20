@@ -79,7 +79,7 @@ form{
     font-size: 1em;
 }
 
-#login:hover{
+#login:hover,#sign:hover{
     border-radius: 10px;
     cursor: pointer;
     color: gold;
@@ -122,4 +122,15 @@ form{
 input[type=checkbox]{
     margin-top: 15px;
     margin-left: 250px;
+}
+
+#sign{
+    margin-left: 90%;
+    background-color: gold;
+    color:black;
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 5px;
+    outline: none;
 }

@@ -86,3 +86,8 @@ textarea {
     font-weight: bold;
     border-radius: 10px;
 }
+
+#rate select{
+    background-color: darkorange;
+    margin-left: 70%;
+}
