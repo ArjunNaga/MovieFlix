@@ -134,3 +134,13 @@ input[type=checkbox]{
     margin-top: 5px;
     outline: none;
 }
+
+#new{
+    text-decoration: none;
+    color: black;
+}
+
+#new:hover{
+    text-decoration: underline;
+    color: orangered;
+}

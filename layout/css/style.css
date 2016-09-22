@@ -178,3 +178,7 @@ input[type = text]{
     margin-left: 10px;
     margin-top: -3px;
 }
+
+.pagination{
+    margin-left: 35%;
+}
