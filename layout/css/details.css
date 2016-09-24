@@ -1,7 +1,6 @@
 #movieName{
     background-color: black;
     overflow: hidden;
-    margin: auto;
     padding: 5px;
 }
 img{
@@ -11,15 +10,11 @@ img{
     margin-top: 20px;
 
 }
-.row .col-xs-6, .col-xs-12{
+.row .col-xs-6{
     background-color: gold;
     font-size: 1.1em;
     font-style: italic;
     font-family: Tahoma, Geneva, sans-serif;
-    border: 1px solid black;
-    width:50.1%;
-    margin-left: 350px;
-
 }
 #title{
     margin-bottom: 5px;
@@ -90,4 +85,9 @@ textarea {
 #rate select{
     background-color: darkorange;
     margin-left: 70%;
+}
+
+#box{
+    width:80%;
+    margin-left: 150px;
 }
