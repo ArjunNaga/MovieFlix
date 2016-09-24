@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class ="backImg">
+<h1 id="title">MovieFlix</h1>
+<a><button ui-sref="login" type="button" id="sign">Sign in</button></a>
+<div id="login-box">
+  <form>
+    <h1>New User</h1><br><br>
 
-</body>
-</html>
+    <label for="Email">Email</label>
+    <input type="text" id="Email" name="Email">
+
+    <label for="userName">Username</label>
+    <input type="text" id="userName" name="userName">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+
+    <label for="password">Confirm Password</label>
+    <input type="password" id="confirm" name="confirm">
+
+    <a ui-sref="login"><button type="button" id="login">Sign Up</button></a>
+  </form>
+</div>
+</div>

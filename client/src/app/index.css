@@ -1,14 +1,456 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+body{
+  background-color: black;
+  outline: none;
+}
+#sidebar-wrapper{
+  background-color: chocolate;
+}
+#images{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+#images img{
+  opacity: 0.7;
+}
+#images img:hover{
+  opacity: 1;
+}
+#images img.zoom{
+  zoom: 120%;
+}
+.col-xs-3 {
+  margin-top: 30px;
+}
+.col-xs-3:hover{
+  cursor: pointer;
+  height: auto;
+  width: auto;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.sidebar-nav li a{
+  color:black;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-weight: bold;
+}
+.sidebar-nav li a:hover{
+  color:orangered;
+  background-color: black;
+}
+.item img{
+  width: 750px;
+  margin-left: 12.5%;
+}
+#btn{
+  margin-top: -110px;
+  margin-left: 900px;
+}
+#menu-toggle,.btn-warning{
+  background-color: orangered;
+  color: snow;
+  font-family: sans-serif;
+  font-style: italic;
+  border-radius: 5px;
+  outline: none;
+  margin-top: -5px;
 }
 
-.thumbnail {
-  height: 200px;
+.btn-warning{
+  height: 2em;
+  margin-top: -1px;
+}
+#menu-toggle:hover, .btn-warning:hover{
+  color: black;
+  background-color: gold;
+}
+#images{
+  margin-top: 5px;
 }
 
-.thumbnail img.pull-right {
-  width: 50px;
+footer{
+  height: 120px;
+  margin-left: -20px;
+  margin-top: 1050px;
+  background-color: #262626;
+  color: white;
+}
+
+.col-xs-4{
+  text-align: center;
+  cursor: default;
+}
+
+.col-xs-4 h4{
+  color: orangered;
+  cursor: pointer;
+}
+
+.col-xs-4 p{
+  font-size: 0.95em;
+}
+
+.col-xs-4 p:hover{
+  color: goldenrod;
+  background-color: transparent;
+  display: inline-block;
+
+}
+
+.fa-facebook-official{
+  color: #3B5998;
+  background-color: white;
+}
+
+.fa-twitter{
+  color:white;
+  background-color: #2998DF;
+}
+
+.fa-instagram{
+  background: radial-gradient(darkviolet,orange);
+}
+
+input[type = text]{
+  position: relative;
+  border-radius: 15px;
+  outline: none;
+  height:2.2em;
+  width: 90%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.list{
+  display: none;
+}
+
+.list:hover{
+  display: inline;
+  background-color: gold;
+}
+
+#filter{
+  position: absolute;
+  margin-left: 150px;
+  float: left;
+}
+
+#filter .dropdown-menu{
+  background-color: gold;
+  text-align: center;
+}
+
+#filter .dropdown-menu a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#filter .dropdown-menu a:hover{
+  background-color: black;
+  color: white;
+}
+
+#filter .btn-group{
+  padding-left: 30px;
+}
+
+#genre{
+  position: absolute;
+  margin-left: 250px;
+  margin-top:-30px;
+}
+
+#year{
+
+  position: absolute;
+  margin-left: 60px;
+}
+
+#search{
+  width:60%;
+  margin-left: 10px;
+  margin-top: -3px;
+}
+
+.pagination{
+  margin-left: 35%;
+}
+
+
+body{
+  background-color: black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#login-box{
+
+  width: 400px;
+  height: 600px;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px black;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 50px;
+  margin: 190px 420px;
+  opacity: 0.95;
+  font-weight: bold;
+}
+#login-box h1{
+  margin-top: -15px;
+  color: orangered;
+}
+
+input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 1.05em;
+}
+
+input[type=submit] {
+  font-size: 1.1em;
+  font-style: oblique;
+  width: 40%;
+  height: 60%;
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  margin-left: 100px;
+  margin-top: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+input[type=password]{
+  -webkit-text-security: disc;
+}
+
+input[type=submit]:hover {
+  background-color: gold;
+  color:black;
+}
+
+form{
+  color: black;
+  font-style: italic;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login{
+  margin-top: 30px;
+  margin-left: 60%;
+  width: 95px;
+  color: black;
+  height: 50px;
+  background-color: gold;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#login:hover,#sign:hover{
+  border-radius: 10px;
+  cursor: pointer;
+  color: gold;
+  background-color: black;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+#title {
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 18%;
+  background: linear-gradient(300deg, orangered 50%, red 50%);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 300%;
+  font-style: italic;
+  text-decoration: none;
+}
+
+#user,#pwd{
+  width: 25%;
+  height: 10px;
+  position: relative;
+}
+
+#cred{
+  margin-top: -40px;
+  border-radius: 20px;
+  margin-left: -220px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+input[type=checkbox]{
+  margin-top: 15px;
+  margin-left: 250px;
+}
+
+#sign{
+  margin-left: 90%;
+  background-color: gold;
+  color:black;
+  border-radius: 8px;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 5px;
+  outline: none;
+}
+
+#new{
+  text-decoration: none;
+  color: black;
+}
+
+#new:hover{
+  text-decoration: underline;
+  color: orangered;
+}
+
+
+#movieName{
+  background-color: black;
+  overflow: hidden;
+  padding: 5px;
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+
+}
+.row .col-xs-6{
+  background-color: gold;
+  font-size: 1.1em;
+  font-style: italic;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+#title{
+  margin-bottom: 5px;
+
+}
+
+.row h4{
+  font-style: italic;
+  color: orangered;
+  text-align: center;
+}
+
+#foot .col-xs-4{
+  background-color: #262626;
+}
+
+.col-xs-4{
+  text-align: center;
+  cursor: default;
+}
+
+.col-xs-4 h4{
+  color: orangered;
+  cursor: pointer;
+}
+
+.col-xs-4 p{
+  font-size: 0.95em;
+  color:snow;
+}
+
+.col-xs-4 p:hover{
+  color: goldenrod;
+  background-color: transparent;
+  display: inline-block;
+
+}
+
+textarea {
+  width: 60%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Tahoma, Geneva, sans-serif;
+  outline: none;
+}
+
+#comment{
+  margin-left: 400px;
+  margin-top: 10px;
+}
+
+#com{
+  background-color: orangered;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#cancel{
+  background-color: snow;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#rate select{
+  background-color: darkorange;
+  margin-left: 70%;
+}
+
+#box{
+  width:80%;
+  margin-left: 150px;
+}
+
+body{
+  background-color: #0f0f0f;
+}
+
+h1{
+  color:gold;
+}
+
+#btn{
+  background-color: gold;
+  color:black;
+  font-weight: bold;
+  outline: none;
+}
+
+.backImg{
+  background: url("../assets/images/batman_vs_superman.jpg");
+  background-color: black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#rate{
+  width: 10%;
+  margin-left: -30px;
 }
