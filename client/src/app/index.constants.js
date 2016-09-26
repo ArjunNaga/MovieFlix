@@ -5,6 +5,7 @@
   angular
     .module('client')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('moment', moment)
+    .constant('baseUrl', 'http://localhost:8080/movieflix/api/');
 
 })();
