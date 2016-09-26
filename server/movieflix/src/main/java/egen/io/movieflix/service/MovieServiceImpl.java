@@ -27,10 +27,8 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public Movie findOne(String movieId) {
 		Movie movie = movieRepository.findOne(movieId);
-		while(movieId!="type"){
 		if (movie == null) {
 			throw new MovieNotFoundException("Movie not found");
-		}
 		}
 		return movie;
 	}
