@@ -17,7 +17,6 @@
 
     movies.getMovie(movies.movieId).then(function (res) {
       vm.Detail = res.data;
-      //console.log(vm.Detail);
     }, function (err) {
       alert(err.message);
     })

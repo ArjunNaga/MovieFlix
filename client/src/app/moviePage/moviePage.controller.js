@@ -19,7 +19,7 @@
     vm.status3 = false;
 
 
-    vm.moviesList = movies.getMovies();
+    vm.moviesList = [];
     vm.singleMovie = movies.getMovie;
     vm.setMovieId = setMovieId;
 
@@ -54,7 +54,7 @@
 
    function setMovieId(id) {
       movies.movieId = id;
-      console.log('movieId' + id);
+      //console.log('movieId' + id);
     }
 
     movies.getMovies().then(function (res) {
