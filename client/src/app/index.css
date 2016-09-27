@@ -350,10 +350,10 @@ img{
 
 }
 .row .col-xs-6{
-  background-color: gold;
   font-size: 1.1em;
   font-style: italic;
   font-family: Tahoma, Geneva, sans-serif;
+  margin-top: 10px;
 }
 #title{
   margin-bottom: 5px;
@@ -462,3 +462,7 @@ h1{
   margin-left: -30px;
 }
 
+#box.row{
+  background-color: gold;
+  margin-top: 30px;
+}

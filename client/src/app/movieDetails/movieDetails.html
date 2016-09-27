@@ -2,11 +2,10 @@
 <div class="row">
   <img ng-src={{movieDetails.Detail.poster}}>
 </div>
-<div class="row" id="title">
-  <div><h4>{{movieDetails.Detail.title}}</h4></div></div>
 
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 <div class="row" id="box">
+  <div class="col-xs-6"><strong>Title:</strong>: {{movieDetails.Detail.title}}</div>
   <div class="col-xs-6"><strong>Year:</strong>: {{movieDetails.Detail.year}}</div>
   <div class="col-xs-6"><strong>Rated:</strong>: {{movieDetails.Detail.rated}}</div>
   <div class="col-xs-6"><strong>Runtime:</strong> {{movieDetails.Detail.runtime}}</div>
